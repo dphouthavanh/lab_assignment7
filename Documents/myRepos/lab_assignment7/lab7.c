@@ -19,6 +19,12 @@ int bubbleSort(int* list, int size)
 {   
     //create count that keeps track of how many swaps were done
     int count = 0;
+    int count2[size];
+
+    for(int a = 0; a < size; a++)
+    {
+        count2[a] = 0;
+    }
 
     //outer loop swaps largest element to the end
     for(int x = 0; x < size-1; x++)
@@ -34,8 +40,14 @@ int bubbleSort(int* list, int size)
 
                 //add to count
                 count++;
+                count2[y]++;
             }
         }
+    }
+
+    for(int b = 0; b < size; b++)
+    {
+        printf("Number of swaps needed for index %d: %d\n", b, count2[b]);
     }
 
     //return number of swaps
@@ -52,8 +64,8 @@ int main()
     //set count = to the function call
     count = bubbleSort(list, size);
 
-    //print amount of swaps
-    printf("Swap Count: %d\n", count);
+    //print amount of total swaps
+    printf("Total Swap Count: %d\n", count);
 
     //end program
     return 0; 
